@@ -1,0 +1,671 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V8.10.3.10338/W32 for 8051         03/Jul/2019  09:48:58 #
+# Copyright 2004-2011 IAR Systems AB.                                         #
+#                                                                             #
+#    Core               =  plain                                              #
+#    Code model         =  banked                                             #
+#    Data model         =  large                                              #
+#    Calling convention =  xdata reentrant                                    #
+#    Constant location  =  data_rom                                           #
+#    Dptr setup         =  1,16                                               #
+#    Source file        =  H:\项目\2019.5\旺旺（lwk474153686）\ZStack-2.5.1a\ #
+#                          Projects\zstack\Samples\SampleApp\Source\MPU6050\m #
+#                          puiic.c                                            #
+#    Command line       =  -f H:\项目\2019.5\旺旺（lwk474153686）\ZStack-2.5. #
+#                          1a\Projects\zstack\Samples\SampleApp\CC2530DB\..\. #
+#                          .\..\Tools\CC2530DB\f8wEndev.cfg (-DCPU32MHZ       #
+#                          -DROOT=__near_func -DMAC_CFG_TX_DATA_MAX=3         #
+#                          -DMAC_CFG_TX_MAX=6 -DMAC_CFG_RX_MAX=3) -f          #
+#                          H:\项目\2019.5\旺旺（lwk474153686）\ZStack-2.5.1a\ #
+#                          Projects\zstack\Samples\SampleApp\CC2530DB\..\..\. #
+#                          .\Tools\CC2530DB\f8wConfig.cfg (-DZIGBEEPRO        #
+#                          -DSECURE=0 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR       #
+#                          -DDEFAULT_CHANLIST=0x00000800                      #
+#                          -DZDAPP_CONFIG_PAN_ID=0xFFF1                       #
+#                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MA #
+#                          SK=0x007F -DBEACON_REQUEST_DELAY=100               #
+#                          -DBEACON_REQ_DELAY_MASK=0x00FF                     #
+#                          -DLINK_STATUS_JITTER_MASK=0x007F                   #
+#                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_PO #
+#                          LLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7             #
+#                          -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3    #
+#                          -DNWK_MAX_DATA_RETRIES=2                           #
+#                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9         #
+#                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40           #
+#                          -DNWK_MAX_BINDING_ENTRIES=4                        #
+#                          -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01,  #
+#                          0x03, 0x05, 0x07, 0x09, 0x0B, 0x0D, 0x0F, 0x00,    #
+#                          0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C, 0x0D}"         #
+#                          -DMAC_MAX_FRAME_SIZE=116                           #
+#                          -DZDNWKMGR_MIN_TRANSMISSIONS=20 "-DCONST=const     #
+#                          __code" -DGENERIC=__generic                        #
+#                          -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000        #
+#                          -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)   #
+#                          -DREJOIN_POLL_RATE=440 H:\项目\2019.5\旺旺（lwk474 #
+#                          153686）\ZStack-2.5.1a\Projects\zstack\Samples\Sam #
+#                          pleApp\Source\MPU6050\mpuiic.c -D NWK_AUTO_POLL    #
+#                          -D ZTOOL_P1 -D MT_TASK -D MT_SYS_FUNC -D           #
+#                          MT_ZDO_FUNC -D LCD_SUPPORTED=DEBUG -lC             #
+#                          H:\项目\2019.5\旺旺（lwk474153686）\ZStack-2.5.1a\ #
+#                          Projects\zstack\Samples\SampleApp\CC2530DB\EndDevi #
+#                          ceEB\List\ -lA H:\项目\2019.5\旺旺（lwk474153686） #
+#                          \ZStack-2.5.1a\Projects\zstack\Samples\SampleApp\C #
+#                          C2530DB\EndDeviceEB\List\ --diag_suppress          #
+#                          Pe001,Pa010 -o H:\项目\2019.5\旺旺（lwk474153686） #
+#                          \ZStack-2.5.1a\Projects\zstack\Samples\SampleApp\C #
+#                          C2530DB\EndDeviceEB\Obj\ -e --no_code_motion       #
+#                          --debug --core=plain --dptr=16,1                   #
+#                          --data_model=large --code_model=banked             #
+#                          --calling_convention=xdata_reentrant               #
+#                          --place_constants=data_rom --nr_virtual_regs 16    #
+#                          -I H:\项目\2019.5\旺旺（lwk474153686）\ZStack-2.5. #
+#                          1a\Projects\zstack\Samples\SampleApp\CC2530DB\ -I  #
+#                          H:\项目\2019.5\旺旺（lwk474153686）\ZStack-2.5.1a\ #
+#                          Projects\zstack\Samples\SampleApp\CC2530DB\..\Sour #
+#                          ce\ -I H:\项目\2019.5\旺旺（lwk474153686）\ZStack- #
+#                          2.5.1a\Projects\zstack\Samples\SampleApp\CC2530DB\ #
+#                          ..\Source\MPU6050\ -I H:\项目\2019.5\旺旺（lwk4741 #
+#                          53686）\ZStack-2.5.1a\Projects\zstack\Samples\Samp #
+#                          leApp\CC2530DB\..\Source\MPU6050\eMPL\ -I          #
+#                          H:\项目\2019.5\旺旺（lwk474153686）\ZStack-2.5.1a\ #
+#                          Projects\zstack\Samples\SampleApp\CC2530DB\..\..\. #
+#                          .\ZMain\TI2530DB\ -I H:\项目\2019.5\旺旺（lwk47415 #
+#                          3686）\ZStack-2.5.1a\Projects\zstack\Samples\Sampl #
+#                          eApp\CC2530DB\..\..\..\..\..\Components\hal\includ #
+#                          e\ -I H:\项目\2019.5\旺旺（lwk474153686）\ZStack-2 #
+#                          .5.1a\Projects\zstack\Samples\SampleApp\CC2530DB\. #
+#                          .\..\..\..\..\Components\hal\target\CC2530EB\ -I   #
+#                          H:\项目\2019.5\旺旺（lwk474153686）\ZStack-2.5.1a\ #
+#                          Projects\zstack\Samples\SampleApp\CC2530DB\..\..\. #
+#                          .\..\..\Components\mac\include\ -I                 #
+#                          H:\项目\2019.5\旺旺（lwk474153686）\ZStack-2.5.1a\ #
+#                          Projects\zstack\Samples\SampleApp\CC2530DB\..\..\. #
+#                          .\..\..\Components\mac\high_level\ -I              #
+#                          H:\项目\2019.5\旺旺（lwk474153686）\ZStack-2.5.1a\ #
+#                          Projects\zstack\Samples\SampleApp\CC2530DB\..\..\. #
+#                          .\..\..\Components\mac\low_level\srf04\ -I         #
+#                          H:\项目\2019.5\旺旺（lwk474153686）\ZStack-2.5.1a\ #
+#                          Projects\zstack\Samples\SampleApp\CC2530DB\..\..\. #
+#                          .\..\..\Components\mac\low_level\srf04\single_chip #
+#                          \ -I H:\项目\2019.5\旺旺（lwk474153686）\ZStack-2. #
+#                          5.1a\Projects\zstack\Samples\SampleApp\CC2530DB\.. #
+#                          \..\..\..\..\Components\mt\ -I                     #
+#                          H:\项目\2019.5\旺旺（lwk474153686）\ZStack-2.5.1a\ #
+#                          Projects\zstack\Samples\SampleApp\CC2530DB\..\..\. #
+#                          .\..\..\Components\osal\include\ -I                #
+#                          H:\项目\2019.5\旺旺（lwk474153686）\ZStack-2.5.1a\ #
+#                          Projects\zstack\Samples\SampleApp\CC2530DB\..\..\. #
+#                          .\..\..\Components\services\saddr\ -I              #
+#                          H:\项目\2019.5\旺旺（lwk474153686）\ZStack-2.5.1a\ #
+#                          Projects\zstack\Samples\SampleApp\CC2530DB\..\..\. #
+#                          .\..\..\Components\services\sdata\ -I              #
+#                          H:\项目\2019.5\旺旺（lwk474153686）\ZStack-2.5.1a\ #
+#                          Projects\zstack\Samples\SampleApp\CC2530DB\..\..\. #
+#                          .\..\..\Components\stack\af\ -I                    #
+#                          H:\项目\2019.5\旺旺（lwk474153686）\ZStack-2.5.1a\ #
+#                          Projects\zstack\Samples\SampleApp\CC2530DB\..\..\. #
+#                          .\..\..\Components\stack\nwk\ -I                   #
+#                          H:\项目\2019.5\旺旺（lwk474153686）\ZStack-2.5.1a\ #
+#                          Projects\zstack\Samples\SampleApp\CC2530DB\..\..\. #
+#                          .\..\..\Components\stack\sapi\ -I                  #
+#                          H:\项目\2019.5\旺旺（lwk474153686）\ZStack-2.5.1a\ #
+#                          Projects\zstack\Samples\SampleApp\CC2530DB\..\..\. #
+#                          .\..\..\Components\stack\sec\ -I                   #
+#                          H:\项目\2019.5\旺旺（lwk474153686）\ZStack-2.5.1a\ #
+#                          Projects\zstack\Samples\SampleApp\CC2530DB\..\..\. #
+#                          .\..\..\Components\stack\sys\ -I                   #
+#                          H:\项目\2019.5\旺旺（lwk474153686）\ZStack-2.5.1a\ #
+#                          Projects\zstack\Samples\SampleApp\CC2530DB\..\..\. #
+#                          .\..\..\Components\stack\zdo\ -I                   #
+#                          H:\项目\2019.5\旺旺（lwk474153686）\ZStack-2.5.1a\ #
+#                          Projects\zstack\Samples\SampleApp\CC2530DB\..\..\. #
+#                          .\..\..\Components\zmac\ -I                        #
+#                          H:\项目\2019.5\旺旺（lwk474153686）\ZStack-2.5.1a\ #
+#                          Projects\zstack\Samples\SampleApp\CC2530DB\..\..\. #
+#                          .\..\..\Components\zmac\f8w\ -Ohz                  #
+#    List file          =  H:\项目\2019.5\旺旺（lwk474153686）\ZStack-2.5.1a\ #
+#                          Projects\zstack\Samples\SampleApp\CC2530DB\EndDevi #
+#                          ceEB\List\mpuiic.lst                               #
+#    Object file        =  H:\项目\2019.5\旺旺（lwk474153686）\ZStack-2.5.1a\ #
+#                          Projects\zstack\Samples\SampleApp\CC2530DB\EndDevi #
+#                          ceEB\Obj\mpuiic.r51                                #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+H:\项目\2019.5\旺旺（lwk474153686）\ZStack-2.5.1a\Projects\zstack\Samples\SampleApp\Source\MPU6050\mpuiic.c
+      1          #include "mpuiic.h"
+
+   \                                 In  segment SFR_AN, at 0x80
+   \   union <unnamed> volatile __sfr _A_P0
+   \                     _A_P0:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xfd
+   \   unsigned char volatile __sfr P0DIR
+   \                     P0DIR:
+   \   000000                DS 1
+      2          #include "delay.h"
+      3           
+      4           //MPU IIC 延时函数
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+      5          void MPU_IIC_Delay(void)
+   \                     MPU_IIC_Delay:
+      6          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+      7          	delay_us(2);
+   \   000004                ; Setup parameters for call to function delay_us
+   \   000004                REQUIRE ?Subroutine2
+   \   000004                ; // Fall through to label ?Subroutine2
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine2:
+   \   000000   7A02         MOV     R2,#0x2
+   \   000002   7B00         MOV     R3,#0x0
+   \   000004   12....       LCALL   ??delay_us?relay
+      8          }
+   \   000007   80..         SJMP    ??Subroutine5_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine5_0:
+   \   000000   D083         POP     DPH
+   \   000002   D082         POP     DPL
+   \   000004   02....       LJMP    ?BRET
+      9          
+     10          //初始化IIC
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     11          void MPU_IIC_Init(void)
+   \                     MPU_IIC_Init:
+     12          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+     13            MPU_SCL_OUT();
+   \   000004   43FD40       ORL     0xfd,#0x40
+     14            MPU_SDA_OUT();
+   \   000007   43FD80       ORL     0xfd,#0x80
+     15          
+     16            MPU_IIC_SDA = 1;
+   \   00000A   D287         SETB    0x80.7
+     17            delay_1ms();
+   \   00000C                ; Setup parameters for call to function delay_1ms
+   \   00000C   12....       LCALL   ??delay_1ms?relay
+     18            MPU_IIC_SCL = 1;
+   \   00000F   D286         SETB    0x80.6
+     19            delay_1ms();
+   \   000011                ; Setup parameters for call to function delay_1ms
+   \   000011   12....       LCALL   ??delay_1ms?relay
+     20          }
+   \   000014   80..         SJMP    ??Subroutine5_0
+   \   000016                REQUIRE P0DIR
+   \   000016                REQUIRE _A_P0
+     21          //产生IIC起始信号
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine4_0:
+   \   000000   7A02         MOV     R2,#0x2
+   \   000002   7B00         MOV     R3,#0x0
+   \   000004   12....       LCALL   ??delay_us?relay
+   \   000007   C286         CLR     0x80.6
+   \   000009                REQUIRE ??Subroutine5_0
+   \   000009                ; // Fall through to label ??Subroutine5_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     22          void MPU_IIC_Start(void)
+   \                     MPU_IIC_Start:
+     23          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+     24          	MPU_SDA_OUT();     //sda线输出
+   \   000004   43FD80       ORL     0xfd,#0x80
+     25          	MPU_IIC_SDA=1;	  	  
+   \   000007   D287         SETB    0x80.7
+     26          	MPU_IIC_SCL=1;
+   \   000009   D286         SETB    0x80.6
+     27          	MPU_IIC_Delay();
+   \   00000B                ; Setup parameters for call to function delay_us
+   \   00000B   7A02         MOV     R2,#0x2
+   \   00000D   7B00         MOV     R3,#0x0
+   \   00000F   12....       LCALL   ??delay_us?relay
+     28           	MPU_IIC_SDA=0;//START:when CLK is high,DATA change form high to low 
+   \   000012   C287         CLR     0x80.7
+     29          	MPU_IIC_Delay();
+   \   000014                ; Setup parameters for call to function delay_us
+   \   000014   80..         SJMP    ??Subroutine4_0
+   \   000016                REQUIRE P0DIR
+   \   000016                REQUIRE _A_P0
+     30          	MPU_IIC_SCL=0;//钳住I2C总线，准备发送或接收数据 
+     31          }	  
+     32          //产生IIC停止信号
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     33          void MPU_IIC_Stop(void)
+   \                     MPU_IIC_Stop:
+     34          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+     35          	MPU_SDA_OUT();//sda线输出
+   \   000004   43FD80       ORL     0xfd,#0x80
+     36          	MPU_IIC_SCL=0;
+   \   000007   C286         CLR     0x80.6
+     37          	MPU_IIC_SDA=0;//STOP:when CLK is high DATA change form low to high
+   \   000009   C287         CLR     0x80.7
+     38           	MPU_IIC_Delay();
+   \   00000B                ; Setup parameters for call to function delay_us
+   \   00000B   12....       LCALL   ?Subroutine3 & 0xFFFF
+     39          	MPU_IIC_SCL=1; 
+     40          	MPU_IIC_SDA=1;//发送I2C总线结束信号
+   \                     ??CrossCallReturnLabel_1:
+   \   00000E   D287         SETB    0x80.7
+     41          	MPU_IIC_Delay();							   	
+   \   000010                ; Setup parameters for call to function delay_us
+   \   000010   80..         SJMP    ?Subroutine2
+   \   000012                REQUIRE P0DIR
+   \   000012                REQUIRE _A_P0
+     42          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine3:
+   \   000000   7A02         MOV     R2,#0x2
+   \   000002   7B00         MOV     R3,#0x0
+   \   000004   12....       LCALL   ??delay_us?relay
+   \   000007   D286         SETB    0x80.6
+   \   000009   22           RET
+     43          //等待应答信号到来
+     44          //返回值：1，接收应答失败
+     45          //        0，接收应答成功
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     46          u8 MPU_IIC_Wait_Ack(void)
+   \                     MPU_IIC_Wait_Ack:
+     47          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+     48          	u8 ucErrTime=0;
+     49          	MPU_SDA_IN();      //SDA设置为输入  
+   \   000004   53FD7F       ANL     0xfd,#0x7f
+     50          	MPU_IIC_SDA=1;MPU_IIC_Delay();	   
+   \   000007   D287         SETB    0x80.7
+   \   000009                ; Setup parameters for call to function delay_us
+   \   000009   12....       LCALL   ?Subroutine3 & 0xFFFF
+     51          	MPU_IIC_SCL=1;MPU_IIC_Delay();	 
+   \                     ??CrossCallReturnLabel_2:
+   \   00000C                ; Setup parameters for call to function delay_us
+   \   00000C   7A02         MOV     R2,#0x2
+   \   00000E   7B00         MOV     R3,#0x0
+   \   000010   12....       LCALL   ??delay_us?relay
+   \   000013   74FB         MOV     A,#-0x5
+     52          	while(MPU_READ_SDA)
+   \                     ??MPU_IIC_Wait_Ack_0:
+   \   000015   A287         MOV     C,0x80.7
+   \   000017   500A         JNC     ??MPU_IIC_Wait_Ack_1
+     53          	{
+     54          		ucErrTime++;
+     55          		if(ucErrTime>250)
+   \   000019   14           DEC     A
+   \   00001A   70F9         JNZ     ??MPU_IIC_Wait_Ack_0
+     56          		{
+     57          			MPU_IIC_Stop();
+   \   00001C                ; Setup parameters for call to function MPU_IIC_Stop
+   \   00001C   12....       LCALL   ??MPU_IIC_Stop?relay
+     58          			return 1;
+   \   00001F   7901         MOV     R1,#0x1
+   \   000021   8004         SJMP    ??MPU_IIC_Wait_Ack_2
+     59          		}
+     60          	}
+     61          	MPU_IIC_SCL=0;//时钟输出0 	   
+   \                     ??MPU_IIC_Wait_Ack_1:
+   \   000023   C286         CLR     0x80.6
+     62          	return 0;  
+   \   000025   7900         MOV     R1,#0x0
+   \                     ??MPU_IIC_Wait_Ack_2:
+   \   000027   80..         SJMP    ??Subroutine5_0
+   \   000029                REQUIRE P0DIR
+   \   000029                REQUIRE _A_P0
+     63          } 
+     64          //产生ACK应答
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine0:
+   \   000000   12....       LCALL   ?Subroutine3 & 0xFFFF
+   \                     ??CrossCallReturnLabel_0:
+   \   000003                ; Setup parameters for call to function delay_us
+   \   000003                ; Setup parameters for call to function delay_us
+   \   000003                REQUIRE ??Subroutine4_0
+   \   000003                ; // Fall through to label ??Subroutine4_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     65          void MPU_IIC_Ack(void)
+   \                     MPU_IIC_Ack:
+     66          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+     67          	MPU_IIC_SCL=0;
+   \   000004   C286         CLR     0x80.6
+     68          	MPU_SDA_OUT();
+   \   000006   43FD80       ORL     0xfd,#0x80
+     69          	MPU_IIC_SDA=0;
+   \   000009   C287         CLR     0x80.7
+     70          	MPU_IIC_Delay();
+   \   00000B                ; Setup parameters for call to function delay_us
+   \   00000B   02....       LJMP    ?Subroutine0 & 0xFFFF
+   \   00000E                REQUIRE _A_P0
+   \   00000E                REQUIRE P0DIR
+     71          	MPU_IIC_SCL=1;
+     72          	MPU_IIC_Delay();
+     73          	MPU_IIC_SCL=0;
+     74          }
+     75          //不产生ACK应答		    
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     76          void MPU_IIC_NAck(void)
+   \                     MPU_IIC_NAck:
+     77          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+     78          	MPU_IIC_SCL=0;
+   \   000004   C286         CLR     0x80.6
+     79          	MPU_SDA_OUT();
+   \   000006   43FD80       ORL     0xfd,#0x80
+     80          	MPU_IIC_SDA=1;
+   \   000009   D287         SETB    0x80.7
+     81          	MPU_IIC_Delay();
+   \   00000B                ; Setup parameters for call to function delay_us
+   \   00000B   02....       LJMP    ?Subroutine0 & 0xFFFF
+   \   00000E                REQUIRE _A_P0
+   \   00000E                REQUIRE P0DIR
+     82          	MPU_IIC_SCL=1;
+     83          	MPU_IIC_Delay();
+     84          	MPU_IIC_SCL=0;
+     85          }					 				     
+     86          //IIC发送一个字节
+     87          //返回从机有无应答
+     88          //1，有应答
+     89          //0，无应答			  
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     90          void MPU_IIC_Send_Byte(u8 txd)
+   \                     MPU_IIC_Send_Byte:
+     91          {                        
+   \   000000   74F7         MOV     A,#-0x9
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 0
+   \   000005   E9           MOV     A,R1
+   \   000006   FF           MOV     R7,A
+     92              u8 t;   
+     93          	MPU_SDA_OUT(); 	    
+   \   000007   43FD80       ORL     0xfd,#0x80
+     94              MPU_IIC_SCL=0;//拉低时钟开始数据传输
+   \   00000A   C286         CLR     0x80.6
+     95              for(t=0;t<8;t++)
+   \   00000C   7E08         MOV     R6,#0x8
+     96              {              
+     97                  MPU_IIC_SDA=(txd&0x80)>>7;
+   \                     ??MPU_IIC_Send_Byte_0:
+   \   00000E   EF           MOV     A,R7
+   \   00000F   A2E7         MOV     C,0xE0 /* A   */.7
+   \   000011   9287         MOV     0x80.7,C
+     98                  txd<<=1; 	  
+   \   000013   C3           CLR     C
+   \   000014   33           RLC     A
+   \   000015   FF           MOV     R7,A
+     99          		    MPU_IIC_SCL=1;
+   \   000016   D286         SETB    0x80.6
+    100          		    MPU_IIC_Delay(); 
+   \   000018                ; Setup parameters for call to function delay_us
+   \   000018   7A02         MOV     R2,#0x2
+   \   00001A   7B00         MOV     R3,#0x0
+   \   00001C   12....       LCALL   ??delay_us?relay
+    101          		    MPU_IIC_SCL=0;	
+   \   00001F   C286         CLR     0x80.6
+    102          		    MPU_IIC_Delay();
+   \   000021                ; Setup parameters for call to function delay_us
+   \   000021   7A02         MOV     R2,#0x2
+   \   000023   7B00         MOV     R3,#0x0
+   \   000025   12....       LCALL   ??delay_us?relay
+    103              }	 
+   \   000028   1E           DEC     R6
+   \   000029   EE           MOV     A,R6
+   \   00002A   70E2         JNZ     ??MPU_IIC_Send_Byte_0
+    104          } 	    
+   \   00002C                REQUIRE ?Subroutine1
+   \   00002C                REQUIRE P0DIR
+   \   00002C                REQUIRE _A_P0
+   \   00002C                ; // Fall through to label ?Subroutine1
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine1:
+   \   000000   7F01         MOV     R7,#0x1
+   \   000002   02....       LJMP    ?BANKED_LEAVE_XDATA
+    105          //读1个字节，ack=1时，发送ACK，ack=0，发送nACK   
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    106          u8 MPU_IIC_Read_Byte(unsigned char ack)
+   \                     MPU_IIC_Read_Byte:
+    107          {
+   \   000000   74F7         MOV     A,#-0x9
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 0
+   \   000005   89..         MOV     ?V0 + 0,R1
+    108          	unsigned char i,receive=0;
+   \   000007   7E00         MOV     R6,#0x0
+    109          	MPU_SDA_IN();//SDA设置为输入
+   \   000009   53FD7F       ANL     0xfd,#0x7f
+    110            for(i=0;i<8;i++ )
+   \   00000C   7F08         MOV     R7,#0x8
+    111            {
+    112              MPU_IIC_SCL=0; 
+   \                     ??MPU_IIC_Read_Byte_0:
+   \   00000E   C286         CLR     0x80.6
+    113              MPU_IIC_Delay();
+   \   000010                ; Setup parameters for call to function delay_us
+   \   000010   12....       LCALL   ?Subroutine3 & 0xFFFF
+    114              MPU_IIC_SCL=1;
+    115              receive<<=1;
+   \                     ??CrossCallReturnLabel_3:
+   \   000013   EE           MOV     A,R6
+   \   000014   C3           CLR     C
+   \   000015   33           RLC     A
+   \   000016   FE           MOV     R6,A
+    116              if(MPU_READ_SDA)receive++;   
+   \   000017   A287         MOV     C,0x80.7
+   \   000019   5001         JNC     ??MPU_IIC_Read_Byte_1
+   \   00001B   0E           INC     R6
+    117                MPU_IIC_Delay(); 
+   \                     ??MPU_IIC_Read_Byte_1:
+   \   00001C                ; Setup parameters for call to function delay_us
+   \   00001C   7A02         MOV     R2,#0x2
+   \   00001E   7B00         MOV     R3,#0x0
+   \   000020   12....       LCALL   ??delay_us?relay
+    118            }	
+   \   000023   1F           DEC     R7
+   \   000024   EF           MOV     A,R7
+   \   000025   70E7         JNZ     ??MPU_IIC_Read_Byte_0
+    119            
+    120            if (!ack) MPU_IIC_NAck();//发送nACK
+   \   000027   E5..         MOV     A,?V0 + 0
+   \   000029   7005         JNZ     ??MPU_IIC_Read_Byte_2
+   \   00002B                ; Setup parameters for call to function MPU_IIC_NAck
+   \   00002B   12....       LCALL   ??MPU_IIC_NAck?relay
+   \   00002E   8003         SJMP    ??MPU_IIC_Read_Byte_3
+    121            else MPU_IIC_Ack(); //发送ACK
+   \                     ??MPU_IIC_Read_Byte_2:
+   \   000030                ; Setup parameters for call to function MPU_IIC_Ack
+   \   000030   12....       LCALL   ??MPU_IIC_Ack?relay
+    122          
+    123            
+    124            return receive;
+   \                     ??MPU_IIC_Read_Byte_3:
+   \   000033   EE           MOV     A,R6
+   \   000034   F9           MOV     R1,A
+   \   000035   80..         SJMP    ?Subroutine1
+   \   000037                REQUIRE P0DIR
+   \   000037                REQUIRE _A_P0
+    125          }
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??MPU_IIC_Delay?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    MPU_IIC_Delay
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??MPU_IIC_Init?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    MPU_IIC_Init
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??MPU_IIC_Start?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    MPU_IIC_Start
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??MPU_IIC_Stop?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    MPU_IIC_Stop
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??MPU_IIC_Wait_Ack?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    MPU_IIC_Wait_Ack
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??MPU_IIC_Ack?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    MPU_IIC_Ack
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??MPU_IIC_NAck?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    MPU_IIC_NAck
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??MPU_IIC_Send_Byte?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    MPU_IIC_Send_Byte
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??MPU_IIC_Read_Byte?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    MPU_IIC_Read_Byte
+    126          
+    127          
+    128          
+    129          
+    130          
+    131          
+    132          
+    133          
+    134          
+    135          
+    136          
+    137          
+    138          
+    139          
+    140          
+    141          
+    142          
+    143          
+    144          
+    145          
+    146          
+    147          
+    148          
+    149          
+    150          
+    151          
+
+   Maximum stack usage in bytes:
+
+     Function          ISTACK PSTACK XSTACK
+     --------          ------ ------ ------
+     MPU_IIC_Ack           2      0      9
+       -> delay_us         4      0      0
+       -> delay_us         4      0      0
+     MPU_IIC_Delay         2      0      0
+       -> delay_us         4      0      0
+     MPU_IIC_Init          2      0      0
+       -> delay_1ms        4      0      0
+       -> delay_1ms        4      0      0
+     MPU_IIC_NAck          2      0      9
+       -> delay_us         4      0      0
+       -> delay_us         4      0      0
+     MPU_IIC_Read_Byte     0      0      9
+       -> delay_us         0      0     18
+       -> delay_us         0      0     18
+       -> MPU_IIC_NAck     0      0     18
+       -> MPU_IIC_Ack      0      0     18
+     MPU_IIC_Send_Byte     0      0      9
+       -> delay_us         0      0     18
+       -> delay_us         0      0     18
+     MPU_IIC_Start         2      0      0
+       -> delay_us         4      0      0
+       -> delay_us         4      0      0
+     MPU_IIC_Stop          2      0      0
+       -> delay_us         4      0      0
+       -> delay_us         4      0      0
+     MPU_IIC_Wait_Ack      2      0      0
+       -> delay_us         4      0      0
+       -> delay_us         4      0      0
+       -> MPU_IIC_Stop     4      0      0
+
+
+   Segment part sizes:
+
+     Function/Label            Bytes
+     --------------            -----
+     _A_P0                        1
+     P0DIR                        1
+     MPU_IIC_Delay                4
+     ?Subroutine2                 9
+     ??Subroutine5_0              7
+     MPU_IIC_Init                22
+     ??Subroutine4_0              9
+     MPU_IIC_Start               22
+     MPU_IIC_Stop                18
+     ?Subroutine3                10
+     MPU_IIC_Wait_Ack            41
+     ?Subroutine0                 3
+     MPU_IIC_Ack                 14
+     MPU_IIC_NAck                14
+     MPU_IIC_Send_Byte           44
+     ?Subroutine1                 5
+     MPU_IIC_Read_Byte           55
+     ??MPU_IIC_Delay?relay        6
+     ??MPU_IIC_Init?relay         6
+     ??MPU_IIC_Start?relay        6
+     ??MPU_IIC_Stop?relay         6
+     ??MPU_IIC_Wait_Ack?relay     6
+     ??MPU_IIC_Ack?relay          6
+     ??MPU_IIC_NAck?relay         6
+     ??MPU_IIC_Send_Byte?relay    6
+     ??MPU_IIC_Read_Byte?relay    6
+
+ 
+ 277 bytes in segment BANKED_CODE
+  54 bytes in segment BANK_RELAYS
+   2 bytes in segment SFR_AN
+ 
+ 331 bytes of CODE memory
+   0 bytes of DATA memory (+ 2 bytes shared)
+
+Errors: none
+Warnings: none

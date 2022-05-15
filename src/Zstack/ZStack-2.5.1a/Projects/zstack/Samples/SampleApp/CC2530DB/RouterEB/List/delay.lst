@@ -1,0 +1,402 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V8.10.3.10338/W32 for 8051         22/Feb/2019  10:21:41 #
+# Copyright 2004-2011 IAR Systems AB.                                         #
+#                                                                             #
+#    Core               =  plain                                              #
+#    Code model         =  banked                                             #
+#    Data model         =  large                                              #
+#    Calling convention =  xdata reentrant                                    #
+#    Constant location  =  data_rom                                           #
+#    Dptr setup         =  1,16                                               #
+#    Source file        =  C:\Users\Administrator\Desktop\ZStack-2.5.1a\Proje #
+#                          cts\zstack\Samples\SampleApp\Source\MPU6050\delay. #
+#                          c                                                  #
+#    Command line       =  -f C:\Users\Administrator\Desktop\ZStack-2.5.1a\Pr #
+#                          ojects\zstack\Samples\SampleApp\CC2530DB\..\..\..\ #
+#                          Tools\CC2530DB\f8wRouter.cfg (-DCPU32MHZ           #
+#                          -DROOT=__near_func -DMAC_CFG_APP_PENDING_QUEUE=TRU #
+#                          E -DMAC_CFG_TX_DATA_MAX=5 -DMAC_CFG_TX_MAX=8       #
+#                          -DMAC_CFG_RX_MAX=5 -DRTR_NWK) -f                   #
+#                          C:\Users\Administrator\Desktop\ZStack-2.5.1a\Proje #
+#                          cts\zstack\Samples\SampleApp\CC2530DB\..\..\..\Too #
+#                          ls\CC2530DB\f8wConfig.cfg (-DZIGBEEPRO -DSECURE=0  #
+#                          -DZG_SECURE_DYNAMIC=0 -DREFLECTOR                  #
+#                          -DDEFAULT_CHANLIST=0x00000800                      #
+#                          -DZDAPP_CONFIG_PAN_ID=0xFFF1                       #
+#                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MA #
+#                          SK=0x007F -DBEACON_REQUEST_DELAY=100               #
+#                          -DBEACON_REQ_DELAY_MASK=0x00FF                     #
+#                          -DLINK_STATUS_JITTER_MASK=0x007F                   #
+#                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_PO #
+#                          LLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7             #
+#                          -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3    #
+#                          -DNWK_MAX_DATA_RETRIES=2                           #
+#                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9         #
+#                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40           #
+#                          -DNWK_MAX_BINDING_ENTRIES=4                        #
+#                          -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01,  #
+#                          0x03, 0x05, 0x07, 0x09, 0x0B, 0x0D, 0x0F, 0x00,    #
+#                          0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C, 0x0D}"         #
+#                          -DMAC_MAX_FRAME_SIZE=116                           #
+#                          -DZDNWKMGR_MIN_TRANSMISSIONS=20 "-DCONST=const     #
+#                          __code" -DGENERIC=__generic                        #
+#                          -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000        #
+#                          -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)   #
+#                          -DREJOIN_POLL_RATE=440 C:\Users\Administrator\Desk #
+#                          top\ZStack-2.5.1a\Projects\zstack\Samples\SampleAp #
+#                          p\Source\MPU6050\delay.c -D ZTOOL_P1 -D xMT_TASK   #
+#                          -D xMT_SYS_FUNC -D xMT_ZDO_FUNC -D                 #
+#                          LCD_SUPPORTED=DEBUG -lC C:\Users\Administrator\Des #
+#                          ktop\ZStack-2.5.1a\Projects\zstack\Samples\SampleA #
+#                          pp\CC2530DB\RouterEB\List\ -lA                     #
+#                          C:\Users\Administrator\Desktop\ZStack-2.5.1a\Proje #
+#                          cts\zstack\Samples\SampleApp\CC2530DB\RouterEB\Lis #
+#                          t\ --diag_suppress Pe001,Pa010 -o                  #
+#                          C:\Users\Administrator\Desktop\ZStack-2.5.1a\Proje #
+#                          cts\zstack\Samples\SampleApp\CC2530DB\RouterEB\Obj #
+#                          \ -e --no_code_motion --debug --core=plain         #
+#                          --dptr=16,1 --data_model=large                     #
+#                          --code_model=banked --calling_convention=xdata_ree #
+#                          ntrant --place_constants=data_rom                  #
+#                          --nr_virtual_regs 16 -I C:\Users\Administrator\Des #
+#                          ktop\ZStack-2.5.1a\Projects\zstack\Samples\SampleA #
+#                          pp\CC2530DB\ -I C:\Users\Administrator\Desktop\ZSt #
+#                          ack-2.5.1a\Projects\zstack\Samples\SampleApp\CC253 #
+#                          0DB\..\Source\ -I C:\Users\Administrator\Desktop\Z #
+#                          Stack-2.5.1a\Projects\zstack\Samples\SampleApp\CC2 #
+#                          530DB\..\Source\MPU6050\ -I                        #
+#                          C:\Users\Administrator\Desktop\ZStack-2.5.1a\Proje #
+#                          cts\zstack\Samples\SampleApp\CC2530DB\..\Source\MP #
+#                          U6050\eMPL\ -I C:\Users\Administrator\Desktop\ZSta #
+#                          ck-2.5.1a\Projects\zstack\Samples\SampleApp\CC2530 #
+#                          DB\..\..\..\ZMain\TI2530DB\ -I                     #
+#                          C:\Users\Administrator\Desktop\ZStack-2.5.1a\Proje #
+#                          cts\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\ #
+#                          ..\Components\hal\include\ -I                      #
+#                          C:\Users\Administrator\Desktop\ZStack-2.5.1a\Proje #
+#                          cts\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\ #
+#                          ..\Components\hal\target\CC2530EB\ -I              #
+#                          C:\Users\Administrator\Desktop\ZStack-2.5.1a\Proje #
+#                          cts\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\ #
+#                          ..\Components\mac\include\ -I                      #
+#                          C:\Users\Administrator\Desktop\ZStack-2.5.1a\Proje #
+#                          cts\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\ #
+#                          ..\Components\mac\high_level\ -I                   #
+#                          C:\Users\Administrator\Desktop\ZStack-2.5.1a\Proje #
+#                          cts\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\ #
+#                          ..\Components\mac\low_level\srf04\ -I              #
+#                          C:\Users\Administrator\Desktop\ZStack-2.5.1a\Proje #
+#                          cts\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\ #
+#                          ..\Components\mac\low_level\srf04\single_chip\ -I  #
+#                          C:\Users\Administrator\Desktop\ZStack-2.5.1a\Proje #
+#                          cts\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\ #
+#                          ..\Components\mt\ -I C:\Users\Administrator\Deskto #
+#                          p\ZStack-2.5.1a\Projects\zstack\Samples\SampleApp\ #
+#                          CC2530DB\..\..\..\..\..\Components\osal\include\   #
+#                          -I C:\Users\Administrator\Desktop\ZStack-2.5.1a\Pr #
+#                          ojects\zstack\Samples\SampleApp\CC2530DB\..\..\..\ #
+#                          ..\..\Components\services\saddr\ -I                #
+#                          C:\Users\Administrator\Desktop\ZStack-2.5.1a\Proje #
+#                          cts\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\ #
+#                          ..\Components\services\sdata\ -I                   #
+#                          C:\Users\Administrator\Desktop\ZStack-2.5.1a\Proje #
+#                          cts\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\ #
+#                          ..\Components\stack\af\ -I                         #
+#                          C:\Users\Administrator\Desktop\ZStack-2.5.1a\Proje #
+#                          cts\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\ #
+#                          ..\Components\stack\nwk\ -I                        #
+#                          C:\Users\Administrator\Desktop\ZStack-2.5.1a\Proje #
+#                          cts\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\ #
+#                          ..\Components\stack\sapi\ -I                       #
+#                          C:\Users\Administrator\Desktop\ZStack-2.5.1a\Proje #
+#                          cts\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\ #
+#                          ..\Components\stack\sec\ -I                        #
+#                          C:\Users\Administrator\Desktop\ZStack-2.5.1a\Proje #
+#                          cts\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\ #
+#                          ..\Components\stack\sys\ -I                        #
+#                          C:\Users\Administrator\Desktop\ZStack-2.5.1a\Proje #
+#                          cts\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\ #
+#                          ..\Components\stack\zdo\ -I                        #
+#                          C:\Users\Administrator\Desktop\ZStack-2.5.1a\Proje #
+#                          cts\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\ #
+#                          ..\Components\zmac\ -I C:\Users\Administrator\Desk #
+#                          top\ZStack-2.5.1a\Projects\zstack\Samples\SampleAp #
+#                          p\CC2530DB\..\..\..\..\..\Components\zmac\f8w\     #
+#                          -Ohz                                               #
+#    List file          =  C:\Users\Administrator\Desktop\ZStack-2.5.1a\Proje #
+#                          cts\zstack\Samples\SampleApp\CC2530DB\RouterEB\Lis #
+#                          t\delay.lst                                        #
+#    Object file        =  C:\Users\Administrator\Desktop\ZStack-2.5.1a\Proje #
+#                          cts\zstack\Samples\SampleApp\CC2530DB\RouterEB\Obj #
+#                          \delay.r51                                         #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+C:\Users\Administrator\Desktop\ZStack-2.5.1a\Projects\zstack\Samples\SampleApp\Source\MPU6050\delay.c
+      1          #include "delay.h"
+      2          
+      3          //延时函数
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+      4          void Delay_us() //1 us延时
+   \                     Delay_us:
+      5          {
+   \   000000                ; Saved register size: 0
+   \   000000                ; Auto size: 0
+      6              asm("nop");
+   \   000000   00           nop
+      7              asm("nop");
+   \   000001   00           nop
+      8              asm("nop");
+   \   000002   00           nop
+      9              asm("nop");
+   \   000003   00           nop
+     10              asm("nop");    
+   \   000004   00           nop
+     11              asm("nop");
+   \   000005   00           nop
+     12              asm("nop");
+   \   000006   00           nop
+     13              asm("nop");    
+   \   000007   00           nop
+     14              asm("nop"); 
+   \   000008   00           nop
+     15          }
+   \   000009   02....       LJMP    ?BRET
+     16          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     17          void Delay_10us() //10 us延时
+   \                     Delay_10us:
+     18          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+     19            Delay_us();
+   \   000004                ; Setup parameters for call to function Delay_us
+   \   000004   12....       LCALL   ?Subroutine1 & 0xFFFF
+     20            Delay_us();
+     21            Delay_us();
+     22            Delay_us();
+     23            Delay_us();
+     24            Delay_us();
+   \                     ??CrossCallReturnLabel_0:
+   \   000007                ; Setup parameters for call to function Delay_us
+   \   000007   12....       LCALL   ?Subroutine1 & 0xFFFF
+     25            Delay_us();
+     26            Delay_us();
+     27            Delay_us();
+     28            Delay_us();   
+     29          }
+   \                     ??CrossCallReturnLabel_1:
+   \   00000A   D083         POP     DPH
+   \   00000C   D082         POP     DPL
+   \   00000E   02....       LJMP    ?BRET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine1:
+   \   000000   12....       LCALL   ??Delay_us?relay
+   \   000003                ; Setup parameters for call to function Delay_us
+   \   000003                ; Setup parameters for call to function Delay_us
+   \   000003   12....       LCALL   ??Delay_us?relay
+   \   000006                ; Setup parameters for call to function Delay_us
+   \   000006                ; Setup parameters for call to function Delay_us
+   \   000006   12....       LCALL   ??Delay_us?relay
+   \   000009                ; Setup parameters for call to function Delay_us
+   \   000009                ; Setup parameters for call to function Delay_us
+   \   000009   12....       LCALL   ??Delay_us?relay
+   \   00000C                ; Setup parameters for call to function Delay_us
+   \   00000C                ; Setup parameters for call to function Delay_us
+   \   00000C   12....       LCALL   ??Delay_us?relay
+   \   00000F   22           RET
+     30          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     31          void delay_us(u16 Time)//n ms延时
+   \                     delay_us:
+     32          {
+   \   000000   74F7         MOV     A,#-0x9
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 0
+   \   000005   EA           MOV     A,R2
+   \   000006   FE           MOV     R6,A
+   \   000007   EB           MOV     A,R3
+   \   000008   FF           MOV     R7,A
+   \   000009   8003         SJMP    ??delay_us_0
+     33              unsigned char i;
+                                   ^
+Warning[Pe177]: variable "i" was declared but never referenced
+     34              while(Time--)
+     35              {
+     36                  Delay_us();
+   \                     ??delay_us_1:
+   \   00000B                ; Setup parameters for call to function Delay_us
+   \   00000B   12....       LCALL   ??Delay_us?relay
+     37              }
+   \                     ??delay_us_0:
+   \   00000E   12....       LCALL   ?Subroutine2 & 0xFFFF
+   \                     ??CrossCallReturnLabel_2:
+   \   000011   70F8         JNZ     ??delay_us_1
+     38          }
+   \   000013                REQUIRE ?Subroutine0
+   \   000013                ; // Fall through to label ?Subroutine0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine0:
+   \   000000   7F01         MOV     R7,#0x1
+   \   000002   02....       LJMP    ?BANKED_LEAVE_XDATA
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine2:
+   \   000000   EE           MOV     A,R6
+   \   000001   F8           MOV     R0,A
+   \   000002   EF           MOV     A,R7
+   \   000003   F9           MOV     R1,A
+   \   000004   E8           MOV     A,R0
+   \   000005   24FF         ADD     A,#-0x1
+   \   000007   1E           DEC     R6
+   \   000008   E9           MOV     A,R1
+   \   000009   34FF         ADDC    A,#-0x1
+   \   00000B   FF           MOV     R7,A
+   \   00000C   E8           MOV     A,R0
+   \   00000D   49           ORL     A,R1
+   \   00000E   22           RET
+     39          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     40          void delay_ms(u16 Time)//n ms延时
+   \                     delay_ms:
+     41          {
+   \   000000   74F7         MOV     A,#-0x9
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 0
+   \   000005   EA           MOV     A,R2
+   \   000006   FE           MOV     R6,A
+   \   000007   EB           MOV     A,R3
+   \   000008   FF           MOV     R7,A
+     42              unsigned char i;
+     43              while(Time--)
+   \                     ??delay_ms_0:
+   \   000009   12....       LCALL   ?Subroutine2 & 0xFFFF
+   \                     ??CrossCallReturnLabel_3:
+   \   00000C   600E         JZ      ??delay_ms_1
+     44              {
+     45                  for(i=0;i<100;i++)
+   \   00000E   75..64       MOV     ?V0 + 0,#0x64
+     46                      Delay_10us();
+   \                     ??delay_ms_2:
+   \   000011                ; Setup parameters for call to function Delay_10us
+   \   000011   12....       LCALL   ??Delay_10us?relay
+   \   000014   15..         DEC     ?V0 + 0
+   \   000016   E5..         MOV     A,?V0 + 0
+   \   000018   60EF         JZ      ??delay_ms_0
+   \   00001A   80F5         SJMP    ??delay_ms_2
+     47              }
+     48          }
+   \                     ??delay_ms_1:
+   \   00001C   80..         SJMP    ?Subroutine0
+     49          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     50          void delay_1ms()//n ms延时
+   \                     delay_1ms:
+     51          {
+   \   000000   74F7         MOV     A,#-0x9
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 0
+     52            unsigned char i;
+     53          
+     54            for(i=0;i<100;i++)
+   \   000005   7E64         MOV     R6,#0x64
+     55              Delay_10us();
+   \                     ??delay_1ms_0:
+   \   000007                ; Setup parameters for call to function Delay_10us
+   \   000007   12....       LCALL   ??Delay_10us?relay
+   \   00000A   1E           DEC     R6
+   \   00000B   EE           MOV     A,R6
+   \   00000C   70F9         JNZ     ??delay_1ms_0
+     56          }
+   \   00000E   80..         SJMP    ?Subroutine0
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??Delay_us?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    Delay_us
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??Delay_10us?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    Delay_10us
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??delay_us?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    delay_us
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??delay_ms?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    delay_ms
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??delay_1ms?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    delay_1ms
+     57          
+
+   Maximum stack usage in bytes:
+
+     Function        ISTACK PSTACK XSTACK
+     --------        ------ ------ ------
+     Delay_10us          2      0      9
+       -> Delay_us       4      0      0
+       -> Delay_us       4      0      0
+       -> Delay_us       4      0      0
+       -> Delay_us       4      0      0
+       -> Delay_us       4      0      0
+       -> Delay_us       4      0      0
+       -> Delay_us       4      0      0
+       -> Delay_us       4      0      0
+       -> Delay_us       4      0      0
+       -> Delay_us       4      0      0
+     Delay_us            0      0      9
+     delay_1ms           0      0      9
+       -> Delay_10us     0      0     18
+     delay_ms            0      0      9
+       -> Delay_10us     0      0     18
+     delay_us            0      0      9
+       -> Delay_us       0      0     18
+
+
+   Segment part sizes:
+
+     Function/Label     Bytes
+     --------------     -----
+     Delay_us             12
+     Delay_10us           17
+     ?Subroutine1         16
+     delay_us             19
+     ?Subroutine0          5
+     ?Subroutine2         15
+     delay_ms             30
+     delay_1ms            16
+     ??Delay_us?relay      6
+     ??Delay_10us?relay    6
+     ??delay_us?relay      6
+     ??delay_ms?relay      6
+     ??delay_1ms?relay     6
+
+ 
+ 130 bytes in segment BANKED_CODE
+  30 bytes in segment BANK_RELAYS
+ 
+ 160 bytes of CODE memory
+
+Errors: none
+Warnings: 1

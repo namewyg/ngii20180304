@@ -1,0 +1,224 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V8.10.3.10338/W32 for 8051         21/Feb/2019  20:37:33 #
+# Copyright 2004-2011 IAR Systems AB.                                         #
+#                                                                             #
+#    Core               =  plain                                              #
+#    Code model         =  banked                                             #
+#    Data model         =  large                                              #
+#    Calling convention =  xdata reentrant                                    #
+#    Constant location  =  data_rom                                           #
+#    Dptr setup         =  1,16                                               #
+#    Source file        =  C:\Users\Administrator\Desktop\ZStack-2.5.1a\Proje #
+#                          cts\zstack\Samples\SampleApp\Source\MPU6050\delay  #
+#                          .c                                                 #
+#    Command line       =  -f C:\Users\Administrator\Desktop\ZStack-2.5.1a\Pr #
+#                          ojects\zstack\Samples\SampleApp\CC2530DB\..\..\..\ #
+#                          Tools\CC2530DB\f8wCoord.cfg (-DCPU32MHZ            #
+#                          -DROOT=__near_func -DMAC_CFG_APP_PENDING_QUEUE=TRU #
+#                          E -DMAC_CFG_TX_DATA_MAX=5 -DMAC_CFG_TX_MAX=8       #
+#                          -DMAC_CFG_RX_MAX=5 -DZDO_COORDINATOR -DRTR_NWK)    #
+#                          -f C:\Users\Administrator\Desktop\ZStack-2.5.1a\Pr #
+#                          ojects\zstack\Samples\SampleApp\CC2530DB\..\..\..\ #
+#                          Tools\CC2530DB\f8wConfig.cfg (-DZIGBEEPRO          #
+#                          -DSECURE=0 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR       #
+#                          -DDEFAULT_CHANLIST=0x00000800                      #
+#                          -DZDAPP_CONFIG_PAN_ID=0xFFF1                       #
+#                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MA #
+#                          SK=0x007F -DBEACON_REQUEST_DELAY=100               #
+#                          -DBEACON_REQ_DELAY_MASK=0x00FF                     #
+#                          -DLINK_STATUS_JITTER_MASK=0x007F                   #
+#                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_PO #
+#                          LLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7             #
+#                          -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3    #
+#                          -DNWK_MAX_DATA_RETRIES=2                           #
+#                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9         #
+#                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40           #
+#                          -DNWK_MAX_BINDING_ENTRIES=4                        #
+#                          -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01,  #
+#                          0x03, 0x05, 0x07, 0x09, 0x0B, 0x0D, 0x0F, 0x00,    #
+#                          0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C, 0x0D}"         #
+#                          -DMAC_MAX_FRAME_SIZE=116                           #
+#                          -DZDNWKMGR_MIN_TRANSMISSIONS=20 "-DCONST=const     #
+#                          __code" -DGENERIC=__generic                        #
+#                          -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000        #
+#                          -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)   #
+#                          -DREJOIN_POLL_RATE=440 "C:\Users\Administrator\Des #
+#                          ktop\ZStack-2.5.1a\Projects\zstack\Samples\SampleA #
+#                          pp\Source\MPU6050\delay .c" -D ZTOOL_P1 -D         #
+#                          xMT_TASK -D xMT_SYS_FUNC -D xMT_ZDO_FUNC -D        #
+#                          LCD_SUPPORTED=DEBUG -lC C:\Users\Administrator\Des #
+#                          ktop\ZStack-2.5.1a\Projects\zstack\Samples\SampleA #
+#                          pp\CC2530DB\CoordinatorEB\List\ -lA                #
+#                          C:\Users\Administrator\Desktop\ZStack-2.5.1a\Proje #
+#                          cts\zstack\Samples\SampleApp\CC2530DB\CoordinatorE #
+#                          B\List\ --diag_suppress Pe001,Pa010 -o             #
+#                          C:\Users\Administrator\Desktop\ZStack-2.5.1a\Proje #
+#                          cts\zstack\Samples\SampleApp\CC2530DB\CoordinatorE #
+#                          B\Obj\ -e --no_code_motion --debug --core=plain    #
+#                          --dptr=16,1 --data_model=large                     #
+#                          --code_model=banked --calling_convention=xdata_ree #
+#                          ntrant --place_constants=data_rom                  #
+#                          --nr_virtual_regs 16 -I C:\Users\Administrator\Des #
+#                          ktop\ZStack-2.5.1a\Projects\zstack\Samples\SampleA #
+#                          pp\CC2530DB\ -I C:\Users\Administrator\Desktop\ZSt #
+#                          ack-2.5.1a\Projects\zstack\Samples\SampleApp\CC253 #
+#                          0DB\..\Source\ -I C:\Users\Administrator\Desktop\Z #
+#                          Stack-2.5.1a\Projects\zstack\Samples\SampleApp\CC2 #
+#                          530DB\..\Source\MPU6050\ -I                        #
+#                          C:\Users\Administrator\Desktop\ZStack-2.5.1a\Proje #
+#                          cts\zstack\Samples\SampleApp\CC2530DB\..\Source\MP #
+#                          U6050\eMPL\ -I C:\Users\Administrator\Desktop\ZSta #
+#                          ck-2.5.1a\Projects\zstack\Samples\SampleApp\CC2530 #
+#                          DB\..\..\..\ZMain\TI2530DB\ -I                     #
+#                          C:\Users\Administrator\Desktop\ZStack-2.5.1a\Proje #
+#                          cts\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\ #
+#                          ..\Components\hal\include\ -I                      #
+#                          C:\Users\Administrator\Desktop\ZStack-2.5.1a\Proje #
+#                          cts\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\ #
+#                          ..\Components\hal\target\CC2530EB\ -I              #
+#                          C:\Users\Administrator\Desktop\ZStack-2.5.1a\Proje #
+#                          cts\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\ #
+#                          ..\Components\mac\include\ -I                      #
+#                          C:\Users\Administrator\Desktop\ZStack-2.5.1a\Proje #
+#                          cts\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\ #
+#                          ..\Components\mac\high_level\ -I                   #
+#                          C:\Users\Administrator\Desktop\ZStack-2.5.1a\Proje #
+#                          cts\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\ #
+#                          ..\Components\mac\low_level\srf04\ -I              #
+#                          C:\Users\Administrator\Desktop\ZStack-2.5.1a\Proje #
+#                          cts\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\ #
+#                          ..\Components\mac\low_level\srf04\single_chip\ -I  #
+#                          C:\Users\Administrator\Desktop\ZStack-2.5.1a\Proje #
+#                          cts\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\ #
+#                          ..\Components\mt\ -I C:\Users\Administrator\Deskto #
+#                          p\ZStack-2.5.1a\Projects\zstack\Samples\SampleApp\ #
+#                          CC2530DB\..\..\..\..\..\Components\osal\include\   #
+#                          -I C:\Users\Administrator\Desktop\ZStack-2.5.1a\Pr #
+#                          ojects\zstack\Samples\SampleApp\CC2530DB\..\..\..\ #
+#                          ..\..\Components\services\saddr\ -I                #
+#                          C:\Users\Administrator\Desktop\ZStack-2.5.1a\Proje #
+#                          cts\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\ #
+#                          ..\Components\services\sdata\ -I                   #
+#                          C:\Users\Administrator\Desktop\ZStack-2.5.1a\Proje #
+#                          cts\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\ #
+#                          ..\Components\stack\af\ -I                         #
+#                          C:\Users\Administrator\Desktop\ZStack-2.5.1a\Proje #
+#                          cts\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\ #
+#                          ..\Components\stack\nwk\ -I                        #
+#                          C:\Users\Administrator\Desktop\ZStack-2.5.1a\Proje #
+#                          cts\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\ #
+#                          ..\Components\stack\sapi\ -I                       #
+#                          C:\Users\Administrator\Desktop\ZStack-2.5.1a\Proje #
+#                          cts\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\ #
+#                          ..\Components\stack\sec\ -I                        #
+#                          C:\Users\Administrator\Desktop\ZStack-2.5.1a\Proje #
+#                          cts\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\ #
+#                          ..\Components\stack\sys\ -I                        #
+#                          C:\Users\Administrator\Desktop\ZStack-2.5.1a\Proje #
+#                          cts\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\ #
+#                          ..\Components\stack\zdo\ -I                        #
+#                          C:\Users\Administrator\Desktop\ZStack-2.5.1a\Proje #
+#                          cts\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\ #
+#                          ..\Components\zmac\ -I C:\Users\Administrator\Desk #
+#                          top\ZStack-2.5.1a\Projects\zstack\Samples\SampleAp #
+#                          p\CC2530DB\..\..\..\..\..\Components\zmac\f8w\     #
+#                          -Ohz                                               #
+#    List file          =  C:\Users\Administrator\Desktop\ZStack-2.5.1a\Proje #
+#                          cts\zstack\Samples\SampleApp\CC2530DB\CoordinatorE #
+#                          B\List\delay .lst                                  #
+#    Object file        =  C:\Users\Administrator\Desktop\ZStack-2.5.1a\Proje #
+#                          cts\zstack\Samples\SampleApp\CC2530DB\CoordinatorE #
+#                          B\Obj\delay .r51                                   #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+C:\Users\Administrator\Desktop\ZStack-2.5.1a\Projects\zstack\Samples\SampleApp\Source\MPU6050\delay .c
+      1          #include "delay.h"
+
+      unsigned char i;
+                    ^
+"C:\Users\Administrator\Desktop\ZStack-2.5.1a\Projects\zstack\Samples\SampleApp\Source\MPU6050\delay.h",42  Warning[Pe177]: 
+          variable "i" was declared but never referenced
+      2          
+      3          //延时函数
+      4          void Delay_us() //1 us延时
+                      ^
+Error[Pe247]: function "Delay_us" has already been defined (at line 13 of
+          "C:\Users\Administrator\Desktop\ZStack-2.5.1a\Projects\zstack\Samples
+          \SampleApp\Source\MPU6050\delay.h")
+      5          {
+      6              asm("nop");
+      7              asm("nop");
+      8              asm("nop");
+      9              asm("nop");
+     10              asm("nop");    
+     11              asm("nop");
+     12              asm("nop");
+     13              asm("nop");    
+     14              asm("nop"); 
+     15          }
+     16          
+     17          void Delay_10us() //10 us延时
+                      ^
+Error[Pe247]: function "Delay_10us" has already been defined (at line 26 of
+          "C:\Users\Administrator\Desktop\ZStack-2.5.1a\Projects\zstack\Samples
+          \SampleApp\Source\MPU6050\delay.h")
+     18          {
+     19            Delay_us();
+     20            Delay_us();
+     21            Delay_us();
+     22            Delay_us();
+     23            Delay_us();
+     24            Delay_us();
+     25            Delay_us();
+     26            Delay_us();
+     27            Delay_us();
+     28            Delay_us();   
+     29          }
+     30          
+     31          void delay_us(u16 Time)//n ms延时
+                      ^
+Error[Pe247]: function "delay_us" has already been defined (at line 40 of
+          "C:\Users\Administrator\Desktop\ZStack-2.5.1a\Projects\zstack\Samples
+          \SampleApp\Source\MPU6050\delay.h")
+     32          {
+     33              unsigned char i;
+                                   ^
+Warning[Pe177]: variable "i" was declared but never referenced
+     34              while(Time--)
+     35              {
+     36                  Delay_us();
+     37              }
+     38          }
+     39          
+     40          void delay_ms(u16 Time)//n ms延时
+                      ^
+Error[Pe247]: function "delay_ms" has already been defined (at line 49 of
+          "C:\Users\Administrator\Desktop\ZStack-2.5.1a\Projects\zstack\Samples
+          \SampleApp\Source\MPU6050\delay.h")
+     41          {
+     42              unsigned char i;
+     43              while(Time--)
+     44              {
+     45                  for(i=0;i<100;i++)
+     46                      Delay_10us();
+     47              }
+     48          }
+     49          
+     50          void delay_1ms()//n ms延时
+                      ^
+Error[Pe247]: function "delay_1ms" has already been defined (at line 59 of
+          "C:\Users\Administrator\Desktop\ZStack-2.5.1a\Projects\zstack\Samples
+          \SampleApp\Source\MPU6050\delay.h")
+     51          {
+     52            unsigned char i;
+     53          
+     54            for(i=0;i<100;i++)
+     55              Delay_10us();
+     56          }
+     57          
+
+Errors: 5
+Warnings: 2

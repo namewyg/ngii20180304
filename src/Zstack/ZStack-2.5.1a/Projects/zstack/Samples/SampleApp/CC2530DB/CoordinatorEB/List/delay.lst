@@ -1,0 +1,366 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V8.10.3.10338/W32 for 8051         03/Jul/2019  09:45:27 #
+# Copyright 2004-2011 IAR Systems AB.                                         #
+#                                                                             #
+#    Core               =  plain                                              #
+#    Code model         =  banked                                             #
+#    Data model         =  large                                              #
+#    Calling convention =  xdata reentrant                                    #
+#    Constant location  =  data_rom                                           #
+#    Dptr setup         =  1,16                                               #
+#    Source file        =  H:\项目\2019.5\旺旺（lwk474153686）\ZStack-2.5.1a\ #
+#                          Projects\zstack\Samples\SampleApp\Source\MPU6050\d #
+#                          elay.c                                             #
+#    Command line       =  -f H:\项目\2019.5\旺旺（lwk474153686）\ZStack-2.5. #
+#                          1a\Projects\zstack\Samples\SampleApp\CC2530DB\..\. #
+#                          .\..\Tools\CC2530DB\f8wCoord.cfg (-DCPU32MHZ       #
+#                          -DROOT=__near_func -DMAC_CFG_APP_PENDING_QUEUE=TRU #
+#                          E -DMAC_CFG_TX_DATA_MAX=5 -DMAC_CFG_TX_MAX=8       #
+#                          -DMAC_CFG_RX_MAX=5 -DZDO_COORDINATOR -DRTR_NWK)    #
+#                          -f H:\项目\2019.5\旺旺（lwk474153686）\ZStack-2.5. #
+#                          1a\Projects\zstack\Samples\SampleApp\CC2530DB\..\. #
+#                          .\..\Tools\CC2530DB\f8wConfig.cfg (-DZIGBEEPRO     #
+#                          -DSECURE=0 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR       #
+#                          -DDEFAULT_CHANLIST=0x00000800                      #
+#                          -DZDAPP_CONFIG_PAN_ID=0xFFF1                       #
+#                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MA #
+#                          SK=0x007F -DBEACON_REQUEST_DELAY=100               #
+#                          -DBEACON_REQ_DELAY_MASK=0x00FF                     #
+#                          -DLINK_STATUS_JITTER_MASK=0x007F                   #
+#                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_PO #
+#                          LLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7             #
+#                          -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3    #
+#                          -DNWK_MAX_DATA_RETRIES=2                           #
+#                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9         #
+#                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40           #
+#                          -DNWK_MAX_BINDING_ENTRIES=4                        #
+#                          -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01,  #
+#                          0x03, 0x05, 0x07, 0x09, 0x0B, 0x0D, 0x0F, 0x00,    #
+#                          0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C, 0x0D}"         #
+#                          -DMAC_MAX_FRAME_SIZE=116                           #
+#                          -DZDNWKMGR_MIN_TRANSMISSIONS=20 "-DCONST=const     #
+#                          __code" -DGENERIC=__generic                        #
+#                          -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000        #
+#                          -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)   #
+#                          -DREJOIN_POLL_RATE=440 H:\项目\2019.5\旺旺（lwk474 #
+#                          153686）\ZStack-2.5.1a\Projects\zstack\Samples\Sam #
+#                          pleApp\Source\MPU6050\delay.c -D ZTOOL_P1 -D       #
+#                          xMT_TASK -D xMT_SYS_FUNC -D xMT_ZDO_FUNC -D        #
+#                          LCD_SUPPORTED=DEBUG -lC H:\项目\2019.5\旺旺（lwk47 #
+#                          4153686）\ZStack-2.5.1a\Projects\zstack\Samples\Sa #
+#                          mpleApp\CC2530DB\CoordinatorEB\List\ -lA           #
+#                          H:\项目\2019.5\旺旺（lwk474153686）\ZStack-2.5.1a\ #
+#                          Projects\zstack\Samples\SampleApp\CC2530DB\Coordin #
+#                          atorEB\List\ --diag_suppress Pe001,Pa010 -o        #
+#                          H:\项目\2019.5\旺旺（lwk474153686）\ZStack-2.5.1a\ #
+#                          Projects\zstack\Samples\SampleApp\CC2530DB\Coordin #
+#                          atorEB\Obj\ -e --no_code_motion --debug            #
+#                          --core=plain --dptr=16,1 --data_model=large        #
+#                          --code_model=banked --calling_convention=xdata_ree #
+#                          ntrant --place_constants=data_rom                  #
+#                          --nr_virtual_regs 16 -I H:\项目\2019.5\旺旺（lwk47 #
+#                          4153686）\ZStack-2.5.1a\Projects\zstack\Samples\Sa #
+#                          mpleApp\CC2530DB\ -I H:\项目\2019.5\旺旺（lwk47415 #
+#                          3686）\ZStack-2.5.1a\Projects\zstack\Samples\Sampl #
+#                          eApp\CC2530DB\..\Source\ -I                        #
+#                          H:\项目\2019.5\旺旺（lwk474153686）\ZStack-2.5.1a\ #
+#                          Projects\zstack\Samples\SampleApp\CC2530DB\..\Sour #
+#                          ce\MPU6050\ -I H:\项目\2019.5\旺旺（lwk474153686） #
+#                          \ZStack-2.5.1a\Projects\zstack\Samples\SampleApp\C #
+#                          C2530DB\..\Source\MPU6050\eMPL\ -I                 #
+#                          H:\项目\2019.5\旺旺（lwk474153686）\ZStack-2.5.1a\ #
+#                          Projects\zstack\Samples\SampleApp\CC2530DB\..\..\. #
+#                          .\ZMain\TI2530DB\ -I H:\项目\2019.5\旺旺（lwk47415 #
+#                          3686）\ZStack-2.5.1a\Projects\zstack\Samples\Sampl #
+#                          eApp\CC2530DB\..\..\..\..\..\Components\hal\includ #
+#                          e\ -I H:\项目\2019.5\旺旺（lwk474153686）\ZStack-2 #
+#                          .5.1a\Projects\zstack\Samples\SampleApp\CC2530DB\. #
+#                          .\..\..\..\..\Components\hal\target\CC2530EB\ -I   #
+#                          H:\项目\2019.5\旺旺（lwk474153686）\ZStack-2.5.1a\ #
+#                          Projects\zstack\Samples\SampleApp\CC2530DB\..\..\. #
+#                          .\..\..\Components\mac\include\ -I                 #
+#                          H:\项目\2019.5\旺旺（lwk474153686）\ZStack-2.5.1a\ #
+#                          Projects\zstack\Samples\SampleApp\CC2530DB\..\..\. #
+#                          .\..\..\Components\mac\high_level\ -I              #
+#                          H:\项目\2019.5\旺旺（lwk474153686）\ZStack-2.5.1a\ #
+#                          Projects\zstack\Samples\SampleApp\CC2530DB\..\..\. #
+#                          .\..\..\Components\mac\low_level\srf04\ -I         #
+#                          H:\项目\2019.5\旺旺（lwk474153686）\ZStack-2.5.1a\ #
+#                          Projects\zstack\Samples\SampleApp\CC2530DB\..\..\. #
+#                          .\..\..\Components\mac\low_level\srf04\single_chip #
+#                          \ -I H:\项目\2019.5\旺旺（lwk474153686）\ZStack-2. #
+#                          5.1a\Projects\zstack\Samples\SampleApp\CC2530DB\.. #
+#                          \..\..\..\..\Components\mt\ -I                     #
+#                          H:\项目\2019.5\旺旺（lwk474153686）\ZStack-2.5.1a\ #
+#                          Projects\zstack\Samples\SampleApp\CC2530DB\..\..\. #
+#                          .\..\..\Components\osal\include\ -I                #
+#                          H:\项目\2019.5\旺旺（lwk474153686）\ZStack-2.5.1a\ #
+#                          Projects\zstack\Samples\SampleApp\CC2530DB\..\..\. #
+#                          .\..\..\Components\services\saddr\ -I              #
+#                          H:\项目\2019.5\旺旺（lwk474153686）\ZStack-2.5.1a\ #
+#                          Projects\zstack\Samples\SampleApp\CC2530DB\..\..\. #
+#                          .\..\..\Components\services\sdata\ -I              #
+#                          H:\项目\2019.5\旺旺（lwk474153686）\ZStack-2.5.1a\ #
+#                          Projects\zstack\Samples\SampleApp\CC2530DB\..\..\. #
+#                          .\..\..\Components\stack\af\ -I                    #
+#                          H:\项目\2019.5\旺旺（lwk474153686）\ZStack-2.5.1a\ #
+#                          Projects\zstack\Samples\SampleApp\CC2530DB\..\..\. #
+#                          .\..\..\Components\stack\nwk\ -I                   #
+#                          H:\项目\2019.5\旺旺（lwk474153686）\ZStack-2.5.1a\ #
+#                          Projects\zstack\Samples\SampleApp\CC2530DB\..\..\. #
+#                          .\..\..\Components\stack\sapi\ -I                  #
+#                          H:\项目\2019.5\旺旺（lwk474153686）\ZStack-2.5.1a\ #
+#                          Projects\zstack\Samples\SampleApp\CC2530DB\..\..\. #
+#                          .\..\..\Components\stack\sec\ -I                   #
+#                          H:\项目\2019.5\旺旺（lwk474153686）\ZStack-2.5.1a\ #
+#                          Projects\zstack\Samples\SampleApp\CC2530DB\..\..\. #
+#                          .\..\..\Components\stack\sys\ -I                   #
+#                          H:\项目\2019.5\旺旺（lwk474153686）\ZStack-2.5.1a\ #
+#                          Projects\zstack\Samples\SampleApp\CC2530DB\..\..\. #
+#                          .\..\..\Components\stack\zdo\ -I                   #
+#                          H:\项目\2019.5\旺旺（lwk474153686）\ZStack-2.5.1a\ #
+#                          Projects\zstack\Samples\SampleApp\CC2530DB\..\..\. #
+#                          .\..\..\Components\zmac\ -I                        #
+#                          H:\项目\2019.5\旺旺（lwk474153686）\ZStack-2.5.1a\ #
+#                          Projects\zstack\Samples\SampleApp\CC2530DB\..\..\. #
+#                          .\..\..\Components\zmac\f8w\ -Ohz                  #
+#    List file          =  H:\项目\2019.5\旺旺（lwk474153686）\ZStack-2.5.1a\ #
+#                          Projects\zstack\Samples\SampleApp\CC2530DB\Coordin #
+#                          atorEB\List\delay.lst                              #
+#    Object file        =  H:\项目\2019.5\旺旺（lwk474153686）\ZStack-2.5.1a\ #
+#                          Projects\zstack\Samples\SampleApp\CC2530DB\Coordin #
+#                          atorEB\Obj\delay.r51                               #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+H:\项目\2019.5\旺旺（lwk474153686）\ZStack-2.5.1a\Projects\zstack\Samples\SampleApp\Source\MPU6050\delay.c
+      1          #include "OnBoard.h"
+      2          #include "delay.h"
+      3          
+      4          //延时函数
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+      5          void Delay_1us() //1 us延时
+   \                     Delay_1us:
+      6          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+      7              MicroWait(1); 
+   \   000004                ; Setup parameters for call to function Onboard_wait
+   \   000004   7A01         MOV     R2,#0x1
+   \   000006                REQUIRE ?Subroutine0
+   \   000006                ; // Fall through to label ?Subroutine0
+      8          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine0:
+   \   000000   7B00         MOV     R3,#0x0
+   \   000002   12....       LCALL   ??Onboard_wait?relay
+   \   000005   D083         POP     DPH
+   \   000007   D082         POP     DPL
+   \   000009   02....       LJMP    ?BRET
+      9          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     10          void Delay_10us() //10 us延时
+   \                     Delay_10us:
+     11          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+     12            MicroWait(10);  
+   \   000004                ; Setup parameters for call to function Onboard_wait
+   \   000004   7A0A         MOV     R2,#0xa
+   \   000006   80..         SJMP    ?Subroutine0
+     13          }
+     14          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     15          void delay_us(u16 Time)//n ms延时
+   \                     delay_us:
+     16          {
+   \   000000   74F7         MOV     A,#-0x9
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 0
+   \   000005   EA           MOV     A,R2
+   \   000006   FE           MOV     R6,A
+   \   000007   EB           MOV     A,R3
+   \   000008   FF           MOV     R7,A
+   \   000009   8007         SJMP    ??delay_us_0
+     17              unsigned char i;
+                                   ^
+Warning[Pe177]: variable "i" was declared but never referenced
+     18              while(Time--)
+     19              {
+     20                  Delay_1us();
+   \                     ??delay_us_1:
+   \   00000B                ; Setup parameters for call to function Onboard_wait
+   \   00000B   7A01         MOV     R2,#0x1
+   \   00000D   7B00         MOV     R3,#0x0
+   \   00000F   12....       LCALL   ??Onboard_wait?relay
+     21              }
+   \                     ??delay_us_0:
+   \   000012   12....       LCALL   ?Subroutine2 & 0xFFFF
+   \                     ??CrossCallReturnLabel_0:
+   \   000015   70F4         JNZ     ??delay_us_1
+     22          }
+   \   000017                REQUIRE ?Subroutine1
+   \   000017                ; // Fall through to label ?Subroutine1
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine1:
+   \   000000   7F01         MOV     R7,#0x1
+   \   000002   02....       LJMP    ?BANKED_LEAVE_XDATA
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine2:
+   \   000000   EE           MOV     A,R6
+   \   000001   F8           MOV     R0,A
+   \   000002   EF           MOV     A,R7
+   \   000003   F9           MOV     R1,A
+   \   000004   E8           MOV     A,R0
+   \   000005   24FF         ADD     A,#-0x1
+   \   000007   1E           DEC     R6
+   \   000008   E9           MOV     A,R1
+   \   000009   34FF         ADDC    A,#-0x1
+   \   00000B   FF           MOV     R7,A
+   \   00000C   E8           MOV     A,R0
+   \   00000D   49           ORL     A,R1
+   \   00000E   22           RET
+     23          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     24          void delay_ms(u16 Time)//n ms延时
+   \                     delay_ms:
+     25          {
+   \   000000   74F7         MOV     A,#-0x9
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 0
+   \   000005   EA           MOV     A,R2
+   \   000006   FE           MOV     R6,A
+   \   000007   EB           MOV     A,R3
+   \   000008   FF           MOV     R7,A
+     26              unsigned char i;
+     27              while(Time--)
+   \                     ??delay_ms_0:
+   \   000009   12....       LCALL   ?Subroutine2 & 0xFFFF
+   \                     ??CrossCallReturnLabel_1:
+   \   00000C   6012         JZ      ??delay_ms_1
+     28              {
+     29                  for(i=0;i<100;i++)
+   \   00000E   75..64       MOV     ?V0 + 0,#0x64
+     30                      Delay_10us();
+   \                     ??delay_ms_2:
+   \   000011                ; Setup parameters for call to function Onboard_wait
+   \   000011   7A0A         MOV     R2,#0xa
+   \   000013   7B00         MOV     R3,#0x0
+   \   000015   12....       LCALL   ??Onboard_wait?relay
+   \   000018   15..         DEC     ?V0 + 0
+   \   00001A   E5..         MOV     A,?V0 + 0
+   \   00001C   60EB         JZ      ??delay_ms_0
+   \   00001E   80F1         SJMP    ??delay_ms_2
+     31              }
+     32          }
+   \                     ??delay_ms_1:
+   \   000020   80..         SJMP    ?Subroutine1
+     33          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     34          void delay_1ms()//n ms延时
+   \                     delay_1ms:
+     35          {
+   \   000000   74F7         MOV     A,#-0x9
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 0
+     36            unsigned char i;
+     37          
+     38            for(i=0;i<100;i++)
+   \   000005   7E64         MOV     R6,#0x64
+     39              Delay_10us();
+   \                     ??delay_1ms_0:
+   \   000007                ; Setup parameters for call to function Onboard_wait
+   \   000007   7A0A         MOV     R2,#0xa
+   \   000009   7B00         MOV     R3,#0x0
+   \   00000B   12....       LCALL   ??Onboard_wait?relay
+   \   00000E   1E           DEC     R6
+   \   00000F   EE           MOV     A,R6
+   \   000010   70F5         JNZ     ??delay_1ms_0
+     40          }
+   \   000012   80..         SJMP    ?Subroutine1
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??Delay_1us?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    Delay_1us
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??Delay_10us?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    Delay_10us
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??delay_us?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    delay_us
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??delay_ms?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    delay_ms
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??delay_1ms?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    delay_1ms
+     41          
+
+   Maximum stack usage in bytes:
+
+     Function          ISTACK PSTACK XSTACK
+     --------          ------ ------ ------
+     Delay_10us            2      0      0
+       -> Onboard_wait     4      0      0
+     Delay_1us             2      0      0
+       -> Onboard_wait     4      0      0
+     delay_1ms             0      0      9
+       -> Onboard_wait     0      0     18
+     delay_ms              0      0      9
+       -> Onboard_wait     0      0     18
+     delay_us              0      0      9
+       -> Onboard_wait     0      0     18
+
+
+   Segment part sizes:
+
+     Function/Label     Bytes
+     --------------     -----
+     Delay_1us             6
+     ?Subroutine0         12
+     Delay_10us            8
+     delay_us             23
+     ?Subroutine1          5
+     ?Subroutine2         15
+     delay_ms             34
+     delay_1ms            20
+     ??Delay_1us?relay     6
+     ??Delay_10us?relay    6
+     ??delay_us?relay      6
+     ??delay_ms?relay      6
+     ??delay_1ms?relay     6
+
+ 
+ 123 bytes in segment BANKED_CODE
+  30 bytes in segment BANK_RELAYS
+ 
+ 153 bytes of CODE memory
+
+Errors: none
+Warnings: 1
