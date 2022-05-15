@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+  <title>实验室设备管理系统</title>
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="../../static/layui/css/layui.css"  media="all">
+  <!-- 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 -->
+  <title></title>
+</head>
+<body>
+  <form class="layui-form layui-form-pane" lay-filter="example" id="update" method ="post">
+      <div class="layui-form-item">
+        <label class="layui-form-label">设备类别</label>
+        <div class="layui-input-block">
+            <label>
+                <select name="eType">
+                    <option value="{{equipment.eType}}" selected="selected">{{equipment.eType}}</option>
+                    {% for type in types %}
+                    <option value="{{type.1}}">{{type.1}}</option>
+                    {% endfor %}
+                </select>
+            </label>
+        </div>
+      </div>
+
+      <div class="layui-form-item">
+        <label class="layui-form-label">设备名称</label>
+        <div class="layui-input-block">
+        <input type="text" name="eName" lay-verify="required"  value="{{equipment.eName}}" autocomplete="off" class="layui-input">
+        </div>
+      </div>
+
+      <div class="layui-form-item">
+        <label class="layui-form-label">设备型号</label>
+        <div class="layui-input-block">
+        <input type="text" name="eModel" lay-verify="required"  value="{{equipment.eModel}}" autocomplete="off" class="layui-input">
+        </div>
+      </div>
+
+      <div class="layui-form-item">
+        <label class="layui-form-label">是否可借</label>
+        <div class="layui-input-block">
+          <select name="eState">
+            {% if equipment.eState == '可借' %}
+            <option value="可借" selected="selected">可借</option>
+            <option value="不可借">不可借</option>
+            {% else %}
+            <option value="可借">可借</option>
+            <option value="不可借" selected="selected">不可借</option>
+            {% endif %}
+          </select>
+        </div>
+      </div>
+      
+      <div class="layui-form-item">
+        <label class="layui-form-label">安装地点</label>
+        <div class="layui-input-block">
+        <input type="text" name="eLocation" lay-verify="required" value="{{equipment.eLocation}}" autocomplete="off" class="layui-input">
+        </div>
+      </div>
+
+      <div class="layui-form-item">
+       <input class="layui-btn layui-btn-fluid" type="submit" lay-submit="" lay-filter="update" name="" value="更新">
+      </div>
+  </form>
+
+ <script src="../../static/layui/layui.js" charset="utf-8"></script>
+<!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+<script>
+
+layui.use(['layer', 'form'], function() {
+      var layer = layui.layer,$ = layui.jquery,form = layui.form;
+      form.on('submit(update)', function(data) {
+          $.ajax({
+              url: ("{% url 'teacher:edit-equipment-update' %}" + "?eid={{equipment.id}}"),
+              data:data.field,
+              dataType:'json',
+              type:'post',
+
+              success:function(data) {
+                if (data.code === 1){
+                  layer.msg('更新失败！');
+                }else if (data.code === 0){
+                  layer.msg('更新成功！');
+  
+                }
+                setTimeout(function() {
+                      location.href = location.href;
+                  }, 500);
+              }
+          });
+          return false;
+      });
+    });
+</script>
+
+</body>
+</html>

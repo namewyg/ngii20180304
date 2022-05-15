@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>实验室设备管理系统</title>
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="../../static/layui/css/layui.css"  media="all">
+  <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+  <!-- 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 -->
+  <style>
+    th
+    {
+      text-align: center !important;
+    }
+    </style>
+</head>
+<body>
+
+<table class="layui-table">
+<!-- lay-data="{width: 892, height:332, url:'/demo/table/user/', page:true, id:'idTest'}" lay-filter="demo" -->
+  <thead>
+    <tr>
+      <th lay-data="{width:80, sort: true, fixed: left}">序号</th>
+      <th lay-data="{align:'center'}">预约时间</th>
+      <th lay-data="{width:80}">预约人</th>
+      <th lay-data="{width:80, sort: true}">设备名称</th>
+      <th lay-data="{width:80}">设备型号</th>
+      <th lay-data="{width:80}">联系电话</th>
+      <th lay-data="{fixed: 'right', width:178, toolbar: '#barDemo'}">操作</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for record in applyRecords %}
+    <tr>
+      <td align="center">
+        <div class="layui-table-cell">{{ forloop.counter }}</div>
+      </td>
+      <td align="center">
+        <div class="layui-table-cell" id={{record.id}}>{{ record.eDate|date:"Y-m-d" }}</div>
+        <script type="text/javascript">
+          var start = '{{record.eBegin}}';
+          var end = '{{record.eEnd}}';
+          var start_hours = Math.floor( start * 30 / 60);          
+          var start_minutes = start * 30 % 60;
+          var end_hours = Math.floor( end * 30 / 60);          
+          var end_minutes = end * 30 % 60;
+          $("#{{record.id}}").append(" " + ( "0" + start_hours).substr(-2)+":"+ ( "0" + start_minutes).substr(-2) + "-" + ( "0" + end_hours).substr(-2)+":"+ ( "0" + end_minutes).substr(-2));
+        </script>
+      </td>
+      <td align="center">
+        <div class="layui-table-cell">{{ record.student.userName }}</div>
+      </td>
+      <td align="center">
+        <div class="layui-table-cell">{{ record.equipment.eName }}</div>
+      </td>
+      <td align="center">
+        <div class="layui-table-cell">{{ record.equipment.eModel }}</div>
+      </td>
+      <td align="center">
+        <div class="layui-table-cell">{{ record.student.userPhone }}</div>
+      </td>
+      <td align="center">
+          <div class="layui-table-cell">
+            {% if record.eState == '待审核' %}
+              <a class="layui-btn layui-btn-xs" href="/teacher/apply-record-detail?id={{record.id}}" target="option">查看预约详情</a>
+              <a class="ok layui-btn layui-btn-xs" lay-event="edit" data-url=/teacher/apply-record-operate/pass?id={{record.id}}>同意</a>
+              <a class="ok layui-btn layui-btn-xs" lay-event="edit" data-url=/teacher/apply-record-operate/fail?id={{record.id}}>拒绝</a>
+            {% else %}
+              <a class="layui-btn layui-btn-xs" href="/teacher/apply-record-detail?id={{record.id}}" target="option">查看预约详情</a>
+              <a class="ok layui-btn-disabled layui-btn-xs">同意</a>
+              <a class="ok layui-btn-disabled layui-btn-xs">拒绝</a>
+            {% endif %}
+          </div>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<script src="../../static/layui/layui.js" charset="utf-8"></script>
+<!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+<script type="text/javascript">
+
+  layui.use('layer', function(){
+    var layer = layui.layer;
+    var $ = layui.jquery;
+    $(".ok").click(function() {
+      var url = $(this).attr("data-url");
+      $.get(url,function(data,status){
+        console.log(layer);
+        layer.msg(data, {time: 1000}, function() {
+          location.href = location.href;
+        });
+      });
+    });
+
+
+  });
+
+</script>
+
+
+</body>
+</html>

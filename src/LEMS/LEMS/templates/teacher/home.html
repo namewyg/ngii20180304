@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>实验室设备管理系统</title>
+  <link rel="stylesheet" href="../../static/layui/css/layui.css">
+</head>
+<body class="layui-layout-body">
+  <div class="layui-layout layui-layout-admin">
+    <div class="layui-header">
+      <div class="layui-logo">实验室设备管理系统</div>
+    <!-- 头部区域（可配合layui已有的水平导航） -->
+      <ul class="layui-nav layui-layout-left">
+        <li class="layui-nav-item" ><a href="{% url 'teacher:type' 'all' %}" target="option">设备列表</a></li>
+        <li class="layui-nav-item" ><a href="{% url 'teacher:add-equipment' %}" target="option">新增设备</a></li>
+        <li class="layui-nav-item"><a href="{% url 'teacher:apply-record-state' 'review' %}" target="option">设备预约待审核</a></li>
+        <li class="layui-nav-item"><a href="{% url 'teacher:drug-check-state' 'review' %}" target="option">设备登记审核</a></li>
+      </ul>
+      <ul class="layui-nav layui-layout-right">
+        <li class="layui-nav-item">
+          <a href="javascript:;">
+            <img src="http://t.cn/RCzsdCq" class="layui-nav-img">{{user.userName}}
+          </a>
+          <dl class="layui-nav-child">
+            <dd><a href="/account/setting/{{user.userNum}}">基本资料</a></dd>
+            <dd><a href="/account/security/{{user.userNum}}">安全设置</a></dd>
+          </dl>
+        </li>
+        <li class="layui-nav-item"><a href="/">退出登录</a></li>
+      </ul>
+    </div>
+
+    <div class="layui-side layui-bg-black">
+      <div class="layui-side-scroll">
+        <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+        <ul class="layui-nav layui-nav-tree"  lay-filter="test">
+          <li class="layui-nav-item layui-nav-itemed">
+            <a class="" href="javascript:;">实验设备</a>
+            <dl class="layui-nav-child">
+              {% for type in types %}
+              <dd><a href="{{type.1}}/equipments" target="option">{{type.1}}</a></dd>
+              {% endfor %}
+            </dl>
+          </li>
+          <li class="layui-nav-item layui-nav-itemed">
+            <a class="" href="javascript:;">其他设备</a>
+            <dl class="layui-nav-child">
+              <dd><a href="{% url 'teacher:drugs-view' '一般' %}" target="option">电机</a></dd>
+              <dd><a href="{% url 'teacher:drugs-view' '危险' %}" target="option">仪器</a></dd>
+            </dl>
+          </li>
+  
+          <li class="layui-nav-item layui-nav-itemed">
+            <a class="" href="javascript:;">实验预约历史</a>
+            <dl class="layui-nav-child">
+              <dd><a href="{% url 'teacher:apply-record-state' 'passed' %}" target="option">审核通过</a></dd>
+              <dd><a href="{% url 'teacher:apply-record-state' 'failed' %}" target="option">审核未通过</a></dd>
+              <dd><a href="{% url 'teacher:apply-record-state' 'expired' %}" target="option">审核过期</a></dd>
+            </dl>
+          </li>
+          <li class="layui-nav-item layui-nav-itemed">
+            <a class="" href="javascript:;">设备使用历史</a>
+            <dl class="layui-nav-child">
+              <dd><a href="{% url 'teacher:drug-check-state' 'passed' %}" target="option">审核通过</a></dd>
+              <dd><a href="{% url 'teacher:drug-check-state' 'failed' %}" target="option">审核未通过</a></dd>
+              <dd><a href="{% url 'teacher:drug-check-state' 'expired' %}" target="option">审核过期</a></dd>
+            </dl>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="layui-body">
+      <!-- 内容主体区域 -->
+      <div style="padding:5px;"><iframe id="option" name="option" src="all/equipments" style="overflow: visible;" scrolling="no" frameborder="no" width="100%" height="100%" onload="this.height=this.contentWindow.document.documentElement.scrollHeight"></iframe></div>
+
+      <div class="layui-footer">
+        <!-- 底部固定区域 -->
+        © layui.com - 底部固定区域
+      </div>
+    </div>
+  </div>
+<script src="../../static/layui/layui.js"></script>
+<script>
+  //JavaScript代码区域
+  layui.use('element', function(){
+    var element = layui.element;
+
+  });
+  function refresh() 
+  {
+    window.location.reload();
+  }
+  setInterval('refresh()', 1000 * 300);
+
+</script>
+</body>
+</html>
